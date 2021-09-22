@@ -1,6 +1,9 @@
 ### Docker ###
 db/volumes
 
+### LowDb ###
+lowdb-data/*
+
 ### Build ###
 build/
 

@@ -1,7 +1,10 @@
 import fastify from "fastify";
 import { productControllers } from "./controllers/productControllers";
+import { startLowDb } from "./lib/lowdb-client";
 
 const PORT = 3000;
+
+startLowDb();
 
 const server = fastify();
 server.register(productControllers);
