@@ -4,6 +4,7 @@
 
 First start:
 
+- create an `.env` file based on the `.env.example`
 - `yarn init:dev` (Sets up environment locally)
 
 to setup docker/postgres
