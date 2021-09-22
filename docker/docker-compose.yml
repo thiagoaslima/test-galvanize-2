@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+    postgres:
+        image: postgres:13-alpine
+        container_name: galvanize-interview-2-postgresdb
+        restart: always
+        environment:
+          - POSTGRES_USER=${PGUSER}
+          - POSTGRES_PASSWORD=${PGPASSWORD}
+          - POSTGRES_DB=${PGDATABASE}
+          - POSTGRES_HOST=${PGHOST}
+        ports:
+          - '${PGPORT}:5432'
+        volumes: 
+          - ../db/volumes/postgres-data:/var/lib/postgresql/data
+          # copy the sql script to create tables
+          - ../db/scripts:/docker-entrypoint-initdb.d/

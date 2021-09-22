@@ -1,0 +1,31 @@
+{
+  "name": "product-info",
+  "version": "1.0.0",
+  "description": "Product info database",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index",
+    "build": "tsc",
+    "init:dev": "docker-compose -f docker/docker-compose.yml --env-file .env up",
+    "test": "jest --passWithNoTests"
+  },
+  "author": "Galvanize",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.2",
+    "@types/jest": "^27.0.1",
+    "@types/lowdb": "^1.0.11",
+    "@types/node": "^16.9.3",
+    "@types/pg": "^8.6.1",
+    "jest": "^27.2.0",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "cross-fetch": "^3.1.4",
+    "dotenv": "^10.0.0",
+    "fastify": "^3.19.2",
+    "pg": "^8.6.0"
+  }
+}
