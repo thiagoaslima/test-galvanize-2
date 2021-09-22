@@ -14,19 +14,3 @@ Then run:
 - `yarn start`
 
 To run the application with `ts-node`.
-
-
-## Testing
-
-You cn run the example tests with:
-
-- `yarn test`
-
-
-## Build
-
-Run:
-
-- `yarn build` 
-
-to compile from Typescript to Javascript
