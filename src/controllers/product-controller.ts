@@ -9,7 +9,7 @@ export class ProductController {
     ) { }
 
     async getProduct(
-        productId: number, 
+        productId: number,
         { currency }: { currency: CurrencyEnum }
     ): Promise<{ statusCode: number, error?: string, data?: Product & { currency: CurrencyEnum } }> {
         if (Number.isNaN(productId)) {
