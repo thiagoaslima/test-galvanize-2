@@ -1,13 +1,23 @@
 import fastify from "fastify";
-import { productControllers } from "./controllers/productControllers";
-import { startLowDb } from "./lib/lowdb-client";
+import { productRoutes } from "./routes/product-routes";
+import { viewCountService } from "./services/view-count-service";
 
 const PORT = 3000;
 
-startLowDb();
-
 const server = fastify();
-server.register(productControllers);
+server.register(productRoutes);
+
+server.addHook('onSend', (request, reply, payload, done) => {
+    const route = request.url.split('?')[0];
+    const successRoute = reply.statusCode >= 200 && reply.statusCode < 300;
+
+    if (route && successRoute) {
+        viewCountService.increment(route);
+    }
+
+    done(null, payload);
+})
+
 server.listen(PORT, err => {
     if (err) console.log(err);
     console.log(`Server listening on port ${PORT}`);
